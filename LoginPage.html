@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<head>
-
-</head>
-<body>
-    LoginPage
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title >일기예뽀 로그인</title>
+        <script>
+            function checkLogin(){
+                alert('로그인');
+            }
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <h1>로그인</h1>
+            <p>아이디</p>
+            <input type="text">
+            <p>비밀번호</p>
+            <input type="password">
+            <a href="SignupPage.html">회원가입</a>
+            <a href="FindIdPage.html">아이디/</a>
+            <a href="FindPwPage.html">비밀번호를 잊으셨나요?</a>
+            <input type="button" value="로그인" onclick=checkLogin()>
+        </div>
+    </body>  
+</html>

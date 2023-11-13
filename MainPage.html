@@ -19,15 +19,40 @@
                 else if(avgtemp<12 && avgtemp>=9) return 9;
                 else if(avgtemp<9 && avgtemp>=5) return 5;
                 else if(avgtemp<5) return 5;
-                else console.log('error: CalculateTemp에서 조건에 부합하지 않음')
+                else console.log('error: CalculateTemp에서 조건에 부합하지 않음');
             }
-            function SelectImg(){
+            function SelectImg(t){
                 //기온별로 이미지 선택
                 //조건문을 사용해 selectedImg 변수에 삽입
-                var selectedImg = "coding.jpg";
+                var selectedImg;
+                switch(t){
+                    case 28: 
+                        selectedImg = "resource/28.jpg"; 
+                        break;
+                    case 23: 
+                        selectedImg = "resource/23.jpg"; 
+                        break;
+                    case 20: 
+                        selectedImg = "resource/20.jpg"; 
+                        break;
+                    case 17: 
+                        selectedImg = "resource/17.jpg"; 
+                        break;
+                    case 12: 
+                        selectedImg = "resource/12.jpg"; 
+                        break;
+                    case 9: 
+                        selectedImg = "resource/9.jpg"; 
+                        break;
+                    case 5: 
+                        selectedImg = "resource/5.jpg"; 
+                        break;
+                    default:   
+                        selectedImg = "resource/20.jpg"; 
+                }
                 return selectedImg;
             }
-            console.log(CalculateTemp(15, 9));
+            catImgValue=SelectImg(CalculateTemp(30, 9));
         </script>
     </head>
     <body>
@@ -36,7 +61,6 @@
             <p>오늘은 비가 오고 추울 예정이에요.</p>
             <img id="catImg">
             <script>
-                catImgValue=SelectImg();
                 $("#catImg").attr('src', catImgValue);
             </script>
         </div>

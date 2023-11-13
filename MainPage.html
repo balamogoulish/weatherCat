@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title >일기예뽀</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function SelectImg(){
+                //기온별로 이미지 선택
+                //조건문을 사용해 selectedImg 변수에 삽입
+                var selectedImg = "coding.jpg";
+                return selectedImg;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <h1>일기예뽀</h1>
+            <p>오늘은 비가 오고 추울 예정이에요.</p>
+            <img id="catImg">
+            <script>
+                catImgValue=SelectImg();
+                $("#catImg").attr('src', catImgValue);
+            </script>
+        </div>
+    </body>  
+</html>

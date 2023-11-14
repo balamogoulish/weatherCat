@@ -4,15 +4,7 @@
         <meta charset="UTF-8">
         <title >일기예뽀 로그인</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            function checkLogin(){
-                var idValue = $('#inputId').val();
-                var pwValue = $('#inputPw').val();
-                console.log('id: '+idValue+'\npw: '+pwValue);
-                alert('로그인에 성공했습니다!');
-                window.location.href='MainPage.html';
-            }
-        </script>
+        <script src="LogInOut.js"></script>
     </head>
     <body>
         <div id="box">
@@ -21,7 +13,7 @@
             <input type="text" id="inputId">
             <p>비밀번호</p>
             <input type="password" id="inputPw">
-            <p class="warning">아이디 혹은 비밀번호가 일치하지 않습니다.</p>
+            <p class="warning" id="loginWarning" style="visibility:hidden;">아이디 혹은 비밀번호가 일치하지 않습니다.</p>
             <a href="SignupPage.html">회원가입</a>
             <input type="button" value="로그인" onclick=checkLogin()>
         </div>

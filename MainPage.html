@@ -9,10 +9,11 @@
     <body>
         <div id="box">
             <h1>일기예뽀</h1>
-            <p>오늘은 비가 오고 추울 예정이에요.</p>
-            <p>우산을 꼭 챙겨가세요!</p>
+            <p id="todayweather">오늘은 비가 오고 추울 예정이에요.</p>
+            <p id="todaytip">우산을 꼭 챙겨가세요!</p>
             <img id="catImg" width="50%">
             <div id="tempbox">
+                <h1 id="nowTemp"></h2>
                 <p>최고 기온</p>
                 <h2 id="highTemp"></h2>
                 <p>최저 기온</p>
@@ -20,8 +21,9 @@
             </div>
             <script>
                 $("#catImg").attr('src', catImgValue);
-                $("#highTemp").text("19");
-                $("#lowTemp").text("10");
+                $("#nowTemp").text(nowtemp);
+                $("#highTemp").text(htemp);
+                $("#lowTemp").text(ltemp);
             </script>
         </div>
     </body>  

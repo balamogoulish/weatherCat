@@ -1,4 +1,8 @@
 var catImgValue;
+var htemp;
+var ltemp;
+var nowtemp;
+
 getWeatherAPI();
 
 //파라미터에 따라 기온별 이미지를 선택해 리턴하는 함수
@@ -23,5 +27,9 @@ function getWeatherAPI(){
     var tmn=0;
     var tmx=0;
     var wsd=5;
+
+    htemp = tmx;
+    ltemp = tmn;
+    nowtemp = tmp;
     catImgValue = SelectImg((tmn+tmx)/2);
 }

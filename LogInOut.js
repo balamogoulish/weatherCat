@@ -1,5 +1,5 @@
 function CheckLogin(){
-    var valid=false; //임시 value
+    var valid=true; //임시 value
 
     var idValue = $('#inputId').val();
     var pwValue = $('#inputPw').val();
@@ -65,6 +65,7 @@ function CheckSignUpToServer(name, id, pw){
     switch(valid){
         case 0:
             alert('회원가입에 성공했습니다!');
+            window.location.href='index.html';
             break;
         case 1:
             alert('중복된 아이디입니다.');

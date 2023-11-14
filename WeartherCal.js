@@ -90,7 +90,7 @@ function GetWeatherAPI(){
     var sky=1;
     var tmp=15;
     var tmn=25;
-    var tmx=31;
+    var tmx=18;
     var wsd=5;
 
     htemp = tmx;

@@ -2,8 +2,9 @@ var catImgValue;
 var htemp;
 var ltemp;
 var nowtemp;
+var weatherInfo;
 
-getWeatherAPI();
+GetWeatherAPI();
 
 //파라미터에 따라 기온별 이미지를 선택해 리턴하는 함수
 function SelectImg(avgtemp){
@@ -18,8 +19,50 @@ function SelectImg(avgtemp){
     else console.log('error: CalculateTemp에서 조건에 부합하지 않음');
 }
 
+function WeatherState(p, s){
+    var howRainSnow;
+    var howSky;
+    switch(p){
+        case 1: 
+            howRainSnow="비";
+            break;
+        case 2: 
+            howRainSnow="비/눈";
+            break;
+        case 3:
+            howRainSnow="눈";
+            break;
+        case 4:
+            howRainSnow="소나기";
+            break;
+        default:
+            howRainSnow="";
+    }
+    switch(s){
+        case 3:
+            howSky="구름이 많을";
+            break;
+        case 4:
+            howSky="흐릴";
+            break;
+        default:
+            howSky="맑을";
+    }
+    if(howRainSnow==""){
+        return "오늘은 "+howSky+" 예정이에요.";
+    } else if(p==3){
+        return "오늘은 "+howRainSnow+"이 내리고 "+howSky+" 예정이에요.";
+    } else{
+        return "오늘은 "+howRainSnow+"가 내리고 "+howSky+" 예정이에요.";
+    }
+}
+
+//날씨에 대한 팁 혹은 덕담 제공 함수
+function WeatherTip(){}
+
 //API에서 가져오는 함수
-function getWeatherAPI(){    
+function GetWeatherAPI(){    
+    //API에서 값을 받아와 다음 변수에 넣어야 함
     var pop=50;
     var pty=0;
     var sky=1;
@@ -32,4 +75,5 @@ function getWeatherAPI(){
     ltemp = tmn;
     nowtemp = tmp;
     catImgValue = SelectImg((tmn+tmx)/2);
+    weatherInfo = WeatherState(pty, sky);
 }

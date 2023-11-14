@@ -4,64 +4,24 @@
         <meta charset="UTF-8">
         <title >일기예뽀</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            function CalculateTemp(h, l){
-                //최고 기온, 최저 기온, 평균 기온
-                //평균 기온을 계산하여, 기온 parameter 제공
-                var htemp=h;
-                var ltemp=l;
-                var avgtemp = (htemp+ltemp)/2;
-                if(avgtemp >= 28) return 28;
-                else if(avgtemp<28 && avgtemp>=23) return 23;
-                else if(avgtemp<23 && avgtemp>=20) return 20;
-                else if(avgtemp<20 && avgtemp>=17) return 17;
-                else if(avgtemp<17 && avgtemp>=12) return 12; 
-                else if(avgtemp<12 && avgtemp>=9) return 9;
-                else if(avgtemp<9 && avgtemp>=5) return 5;
-                else if(avgtemp<5) return 5;
-                else console.log('error: CalculateTemp에서 조건에 부합하지 않음');
-            }
-            function SelectImg(t){
-                //기온별로 이미지 선택
-                //조건문을 사용해 selectedImg 변수에 삽입
-                var selectedImg;
-                switch(t){
-                    case 28: 
-                        selectedImg = "resource/28.jpg"; 
-                        break;
-                    case 23: 
-                        selectedImg = "resource/23.jpg"; 
-                        break;
-                    case 20: 
-                        selectedImg = "resource/20.jpg"; 
-                        break;
-                    case 17: 
-                        selectedImg = "resource/17.jpg"; 
-                        break;
-                    case 12: 
-                        selectedImg = "resource/12.jpg"; 
-                        break;
-                    case 9: 
-                        selectedImg = "resource/9.jpg"; 
-                        break;
-                    case 5: 
-                        selectedImg = "resource/5.jpg"; 
-                        break;
-                    default:   
-                        selectedImg = "resource/20.jpg"; 
-                }
-                return selectedImg;
-            }
-            catImgValue=SelectImg(CalculateTemp(30, 9));
-        </script>
+        <script src="WeartherCal.js"></script>
     </head>
     <body>
         <div id="box">
             <h1>일기예뽀</h1>
             <p>오늘은 비가 오고 추울 예정이에요.</p>
-            <img id="catImg">
+            <p>우산을 꼭 챙겨가세요!</p>
+            <img id="catImg" width="50%">
+            <div id="tempbox">
+                <p>최고 기온</p>
+                <h2 id="highTemp"></h2>
+                <p>최저 기온</p>
+                <h2 id="lowTemp"></h2>
+            </div>
             <script>
                 $("#catImg").attr('src', catImgValue);
+                $("#highTemp").text("19");
+                $("#lowTemp").text("10");
             </script>
         </div>
     </body>  

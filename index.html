@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title >일기예뽀 로그인</title>
+        <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="LogInOut.js"></script>
     </head>
@@ -13,9 +14,9 @@
             <input type="text" id="inputId">
             <p>비밀번호</p>
             <input type="password" id="inputPw">
-            <p class="warning" id="loginWarning" style="visibility:hidden;">아이디 혹은 비밀번호가 일치하지 않습니다.</p>
+            <p class="warning" id="loginWarning">아이디 혹은 비밀번호가 일치하지 않습니다.</p>
             <a href="SignupPage.html">회원가입</a>
-            <input type="button" value="로그인" onclick=checkLogin()>
+            <input type="button" value="로그인" onclick=CheckLogin()>
         </div>
     </body>  
 </html>

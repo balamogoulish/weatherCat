@@ -3,33 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <title >일기예뽀 회원가입</title>
-        <script>
-            function checkSignUp(){
-                //닉네임, 아이디, 비밀번호 중복 확인 기능
-                //확인 후, 객체를 생성해 DB로 날리는 기능
-                alert('회원가입');
-            }
-        </script>
+        <link rel="stylesheet" href="style.css">
+        <script src="LogInOut.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <div id="box">
             <h1>회원가입</h1>
             <p>닉네임</p>
-            <input type="text">
-            <p class="warning">2~10자 내로 작성해주세요.</p>
+            <input type="text" id="newName">
+            <p class="warning" id="nameWarning">2~10자 내로 작성해주세요.</p>
             <p>아이디</p>
-            <input type="text">
-            <p class="warning">중복된 아이디입니다.</p>
+            <input type="text" id="newId">
+            <p class="warning" id="idWarning">2~10자 내로 작성해주세요.</p>
             <p>비밀번호</p>
-            <input type="password">
-            <p class="warning">8~16자 영문 대 소문자, 숫자, 특수문자를 사용해주세요.</p>
+            <input type="password" id="newPw">
+            <p class="warning" id="pwWarning">8~16자 영문 대 소문자, 숫자, 특수문자를 사용해주세요.</p>
             <p>비밀번호 확인</p>
-            <input type="password">
-            <p class="warning">비밀번호가 일치하지 않습니다.</p>
-            <p>가장 좋아하는 계절은?</p>
-            <input type="text">
-            <p class="warning">필수 입력칸입니다.</p>
-            <input type="button" value="회원가입" onclick=checkSignUp()>
+            <input type="password" id="checkPw">
+            <p class="warning" id="pwReWarning">비밀번호가 일치하지 않습니다.</p>
+            <input type="button" value="회원가입" onclick=CheckSignUp()>
         </div>
     </body>  
 </html>

@@ -3,6 +3,7 @@ var htemp;
 var ltemp;
 var nowtemp;
 var weatherInfo;
+var weatherTip;
 
 GetWeatherAPI();
 
@@ -62,7 +63,24 @@ function WeatherState(p, s, rp){
 }
 
 //날씨에 대한 팁 혹은 덕담 제공 함수
-function WeatherTip(){}
+function WeatherTip(tmn, tmx, pty, wsd, pop){
+    if(tmx-tmn > 10) return "일교차가 크니 옷을 여러 개 입는 걸 추천한다냥!"
+    else if(pty!=0 || pop>60) return "우산 챙기는 거 잊지 말라냥~"
+    else if(tmx > 30) return "엣취! 에어컨 바람이 춥다냥.. 가디건도 챙겨가라냥.."
+    else if(wsd > 10) return "바람이 강하다냥, 바람막이는 어떠냥?"
+    else { //덕담 중 랜덤 선택
+        var tip = [
+            '멋쟁이가 될 준비됐냥?',
+            '오늘도 멋진 하루 보내라냥!',
+            '일찍 일어난 고양이가 졸린 법...',
+            '더울 땐 시원하게, 추울 때 따뜻하게 입는 게 진정한 패션냥이지냥.',
+            '오늘도 응원한다냥!',
+            '내일부터 진짜 갓생살거다냥, 오늘은 좀 자고...'
+        ];
+        var random_index = Math.floor(Math.random()*tip.length);
+        return tip[random_index];
+    }
+}
 
 //API에서 가져오는 함수
 function GetWeatherAPI(){    
@@ -71,8 +89,8 @@ function GetWeatherAPI(){
     var pty=0;
     var sky=1;
     var tmp=15;
-    var tmn=0;
-    var tmx=0;
+    var tmn=25;
+    var tmx=31;
     var wsd=5;
 
     htemp = tmx;
@@ -80,4 +98,5 @@ function GetWeatherAPI(){
     nowtemp = tmp;
     catImgValue = SelectImg((tmn+tmx)/2);
     weatherInfo = WeatherState(pty, sky, pop);
+    weatherTip = WeatherTip(tmn, tmx, pty, wsd, pop);
 }
